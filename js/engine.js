@@ -13,9 +13,6 @@
  * writing app.js a little simpler to work with.
  */
 
-// Counter for blue gems collected
-var blueGemCounter;
-
 var Engine = (function(global) {
     /* Predefine the variables we'll be using within this scope,
      * create the canvas element, grab the 2D context for that canvas
@@ -103,7 +100,8 @@ var Engine = (function(global) {
     
     /**
      * Checks for collsions between the player and enemy objects. If there is a collision the player is sent back to
-     * their initial position.
+     * their initial position. Also updates the amount of gems that have been collected by the player, or resets the
+     * score if neccessary.
      */
     function checkCollisions() {
         allEnemies.forEach(function(enemy) {

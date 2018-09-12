@@ -1,5 +1,3 @@
-
-
 // Enemies our player must avoid
 var Enemy = function() {
     // Variables applied to each of our instances go here,
@@ -25,7 +23,6 @@ Enemy.prototype.update = function(dt) {
         if (this.x > 5 * 83) {
             this.setToStartPos();
         }
-        
 };
 
 // Draw the enemy on the screen, required method for game
@@ -41,10 +38,7 @@ Enemy.prototype.setToStartPos = function() {
     this.speed = getRandomInt(2,6);
 };
 
-// Now write your own player class
-// This class requires an update(), render() and
-// a handleInput() method.
-
+// Represents the playable character that the player will use in the game
 var Player = function() {
     // The image/sprite for the player character
     this.sprite = "images/char-boy.png";
@@ -127,12 +121,7 @@ ScoreBoard.prototype.updateScores = function() {
     this.blueGemDisplay.innerHTML = "Blue Gems: " + this.blueGemCounter;
 };
 
-
-// Now instantiate your objects.
-// Place all enemy objects in an array called allEnemies
-// Place the player object in a variable called player
-
-// Creates the Player object
+// Instantiates necessary objects
 var player = new Player();
 var gem = new Gem();
 var scoreBoard = new ScoreBoard();
@@ -143,14 +132,10 @@ for (var i = 0; i < 3; i++) {
     allEnemies.push(new Enemy());
 }
 
-
-
+// Helper function that generates a random integer that falls in the range from the given min to the given max
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-
-
-
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
